@@ -2,11 +2,9 @@
 This repository is the implemention of DeepNC, a method to recover the missing part of a network. Reference: https://arxiv.org/abs/1907.07381.
 
 # Test run
-
 ```
 python main_test.py
 ```
-
 # Descriptions
 
 The code is being clean. Further descriptions shall be available soon.
