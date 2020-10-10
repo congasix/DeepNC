@@ -759,13 +759,13 @@ def compute_distance(filename1,ground_truth):
     if (len(ground_truth) == len(G_pro1)):
         
         # compute MAE
-        X3 = fastPFP_faster(B3, B2, lam=lam, alpha=0.5,
-                       threshold1=1.0e-4, threshold2=1.0e-4,verbose=False)
-        loss_X = loss(B2, B3, X3)/(len(ground_truth)**2)
+        #X3 = fastPFP_faster(B3, B2, lam=lam, alpha=0.5,
+        #               threshold1=1.0e-4, threshold2=1.0e-4,verbose=False)
+        #loss_X = loss(B2, B3, X3)/(len(ground_truth)**2)
 
         #print("MAE = %s" % loss_X)
         # compute GED
-        #GED = graph_edit_dist.compare(G_pro1,ground_truth, False)
+        GED = graph_edit_dist.compare(G_pro1,ground_truth, False)
         #print("GED = %s" % graph_edit_dist.compare(G_pro1,ground_truth, False))        
         #for v in nx.optimize_graph_edit_distance(G_pro1, ground_truth, node_subst_cost=0):
         #    minv = v
@@ -775,17 +775,17 @@ def compute_distance(filename1,ground_truth):
         #print("loi: ",len(ground_truth), len(G_pro1))
         for i in range(len(ground_truth) - len(G_pro1)):
             G_pro1.add_node("dummy"+str(i))
-        B3 = nx.to_numpy_matrix(G_pro1)
-        X3 = fastPFP_faster(B3, B2, lam=lam, alpha=0.5, 
-                            threshold1=1.0e-4, threshold2=1.0e-4,verbose=False)
-        loss_X = loss(B2, B3, X3)/(len(ground_truth)**2)
+        #B3 = nx.to_numpy_matrix(G_pro1)
+        #X3 = fastPFP_faster(B3, B2, lam=lam, alpha=0.5, 
+        #                    threshold1=1.0e-4, threshold2=1.0e-4,verbose=False)
+        #loss_X = loss(B2, B3, X3)/(len(ground_truth)**2)
         # compute MAE
         #print("MAE = %s" % loss_X)
         # compute GED
-        #GED = graph_edit_dist.compare(G_pro1,ground_truth, False)
+        GED = graph_edit_dist.compare(G_pro1,ground_truth, False)
         #print("GED = %s" % GED)        
         
-    return loss_X
+    return GED
 
 def graphcomplete(truth, obs_graph, epoch, args, rnn, output, save_histogram=False,sample_time=1):
     rnn.eval()

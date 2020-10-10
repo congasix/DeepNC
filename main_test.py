@@ -108,7 +108,7 @@ if __name__ == '__main__':
     #args.max_prev_node = 198
     ### dataset initialization
     
-    args.max_prev_node = 1033
+    args.max_prev_node = 72
     # for training only, comment when doing graph completion (test phase)
     """
     if 'nobfs' in args.note:
@@ -157,8 +157,8 @@ if __name__ == '__main__':
     
     ### graph completion
     #train_graph_completion(args,dataset_loader,rnn,output)
-    truth=nx.read_edgelist("ground_truth_face.txt")
-    obs_graph=nx.read_edgelist("delgraph_face_RN.txt")
+    truth=nx.read_edgelist("ground_truth_pro.txt")
+    obs_graph=nx.read_edgelist("delgraph_pro_RN.txt")
     obs_graph=deledges(obs_graph,0.1)
     graph_completion(truth, obs_graph, args,rnn,output)
 
